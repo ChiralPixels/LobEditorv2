@@ -1,0 +1,6 @@
+The majority of the game's code is in the obj_roomgrid and obj_mapgrid objects.
+These objects are what the player clicks on when they click a space in the editable area.
+Depending on what menu buttons are selected the result will be different, but it usually creates an object.
+
+In the room editor, the majority of the code is in obj_block, which acts as a parent for most other objects.
+

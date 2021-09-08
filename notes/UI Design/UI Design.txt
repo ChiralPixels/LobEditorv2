@@ -1,0 +1,65 @@
+
+MENU>PATH>ROOM
+-click grid to scroll through room shapes
+-right click grid to rotate a room shape
+-rooms that scroll all the way back to empty have their rotation reset
+-click toolbar to paint that shape
+-right click with a shape selected to delete room shape/rotation
+
+MENU>PATH>DOOR
+-click an intersection between two rooms
+-select up to three door locations from the toolbar on the right
+-right click an intersection to delete a door
+
+MENU>PATH>STAIRS
+-click grid to scroll through stairs up, stairs down, and tunnel
+-where you click on the grid space determines the direction of the tunnel
+-the tunnel will look at rooms in that direction and connect to the first room with a tunnel
+-stairs up and down can be used for multi level dungeons
+
+MENU>PATH>START
+-pick the starting location
+
+MENU>CHALLENGE
+-click grid to create a challenge of the currently selected type (combat,puzzle,danger)
+-click grid space again to increase the challenge difficulty, max level 3
+-right click space to delete challenge and difficulty for that square
+-challenges are designed to increase in difficulty as the level progresses
+-puzzles in particular should be set up in the order they are to be completed
+
+MENU>KEY>TRIGGER
+-click grid to scroll through switch, key, orb or beacon for that room
+-right click to delete a trigger
+-these triggers will match locks place in the next menu
+
+MENU>KEY>MECHANISM
+-click to place a mechanism and scroll through the following options: blank/shift/rotate90/rotate180
+-where you click on the grid space determines the direction of the shift/rotation
+-rooms shift until reaching a stopping point (edge of map or a room in the way)
+-the shifting rooms do not have walls themselves and use the door configuration of adjacent rooms
+-empty spaces next to shifting rooms are replaced with pits
+
+MENU>KEY>SECRET
+-click grid to place a hidden entrance to a bonus area
+-where you click on the grid space determines the direction of the secret area
+-if the room is empty it will generate a secrete entrance puzzle room
+-if it is a challenge room it will change a space on the correct wall into a hidden entrance
+-this room will not be drawn on the minimap if the player reveals the map, they must enter the room first
+-this can be a bombable wall or an illusion wall depending on equipment
+
+MENU>KEY>TEXT
+-text used to give a hint about mechanisms or secrets
+-they are placed on the map, then the text is typed in the toolbar
+
+MENU>LOCK>LOCKTYPE
+-click grid to cycle which trigger will open this room's lock
+-where you click on the grid space determines the direction that is locked (first door is always the locked one)
+-right click to delete locktype
+
+MENU>LOCK>LINK
+-click locked rooms to cycle through the possible triggers located on the map
+-locks without links will trigger when the room challenge is completed
+
+MENU>LOCK>BOSS
+-this is the final room, and can be substituted for a simple exit back to town if the quest doesn't have a boss
+

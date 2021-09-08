@@ -1,0 +1,1 @@
+if lockdir=true and obj_controller.menubuttonx<4 {} else draw_self();
