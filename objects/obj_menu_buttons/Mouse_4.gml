@@ -44,4 +44,13 @@ if y=112 {
 	obj_controller.menubuttonx=1+(x/16);
 	obj_controller.menubuttony=5;
 }
+//fix glitched toolbar
+var i=x;
+if obj_controller.roomormap=1 and obj_controller.menubuttony>1 {
+	obj_controller.menubuttony=1;
+	with (obj_menu_buttons) {
+		selected=false;
+		if x=i and y=48 selected=true;
+	}
+}
 #endregion

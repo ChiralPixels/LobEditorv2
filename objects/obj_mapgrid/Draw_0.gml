@@ -1,0 +1,1 @@
+if place_empty(x,y,obj_room) draw_self();

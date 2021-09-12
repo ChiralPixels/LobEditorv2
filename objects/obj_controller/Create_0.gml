@@ -24,12 +24,6 @@ repeat(6){
 //dungeon room grids
 obj_grid = ds_grid_create(7,7);			//what room object is on what tile in the room
 dir_grid = ds_grid_create(7,7);			//which direction the object on the tile is rotated
-//door grids
-//(split into vertical and horizontal grids, with extra grids for additional exits)
-vdr1_grid = ds_grid_create(7,7);		//vertical doors
-hdr1_grid = ds_grid_create(7,7);		//horizontal doors (Hodor)
-vdr2_grid = ds_grid_create(7,7);		//additional vertical doors
-hdr2_grid = ds_grid_create(7,7);		//additional horizontal doors
 #endregion
 
 #region MAP EDITOR DATA
@@ -41,8 +35,15 @@ chall_grid = ds_grid_create(7,7);		//challenge type/level (combat/danger/puzzle)
 trig_grid = ds_grid_create(7,7);		//something in this room is used in a locked room
 lock_grid = ds_grid_create(7,7);		//which trigger is used to unlock this room
 lockdir_grid = ds_grid_create(7,7);		//which direction is locked (if two doors, lock the first)
+//door grids
+//(split into vertical and horizontal grids, with extra grids for additional exits)
+vdr1_grid = ds_grid_create(7,7);		//vertical doors
+hdr1_grid = ds_grid_create(7,7);		//horizontal doors (Hodor!)
+vdr2_grid = ds_grid_create(7,7);		//additional vertical doors
+hdr2_grid = ds_grid_create(7,7);		//additional horizontal doors
+//special rooms
 enterx=0;								//x location of starting room
 entery=0;								//y location of starting room
-bossx=0;								//x location of starting room
-bossy=0;								//y location of starting room
+bossx=0;								//x location of boss room
+bossy=0;								//y location of boss room
 #endregion

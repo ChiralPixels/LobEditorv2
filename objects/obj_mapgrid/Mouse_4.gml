@@ -1,40 +1,44 @@
 
 #region SPAWN OBJECTS INTO MAPS
-//this makes sure editor is in room mode
+//this is to make sure nothing is spawned if the user is clicking to delete an object
 if keyboard_check(vk_shift) exit;
 //this is a dumb way to spawn objects based on what ui buttons are selected
 //first we create rooms if the right button is selected
 if obj_controller.menubuttonx=1 {
+		if obj_controller.menubuttony>2 exit;
+		if ! place_empty(x,y,obj_room) exit;
+		if obj_controller.toolbuttonx=0 and obj_controller.toolbuttony=0
+			{var i=instance_create_depth(x,y,depth,obj_room); i.image_index=0;}
 		if ! place_empty(x,y,obj_room) exit;
 		if obj_controller.toolbuttonx=1
 		and obj_controller.toolbuttony=1
-			{var i=instance_create_depth(x,y,depth-1,obj_room); i.image_index=0;}
+			{var i=instance_create_depth(x,y,depth,obj_room); i.image_index=0;}
 		if obj_controller.toolbuttonx=2
 		and obj_controller.toolbuttony=1
-			{var i=instance_create_depth(x,y,depth-1,obj_room); i.image_index=1;}
+			{var i=instance_create_depth(x,y,depth,obj_room); i.image_index=1;}
 		if obj_controller.toolbuttonx=3
 		and obj_controller.toolbuttony=1
-		{var i=instance_create_depth(x,y,depth-1,obj_room); i.image_index=2;}
+		{var i=instance_create_depth(x,y,depth,obj_room); i.image_index=2;}
 		
 		if obj_controller.toolbuttonx=1
 		and obj_controller.toolbuttony=2
-			{var i=instance_create_depth(x,y,depth-1,obj_room); i.image_index=3;}
+			{var i=instance_create_depth(x,y,depth,obj_room); i.image_index=3;}
 		if obj_controller.toolbuttonx=2
 		and obj_controller.toolbuttony=2
-			{var i=instance_create_depth(x,y,depth-1,obj_room); i.image_index=4;}
+			{var i=instance_create_depth(x,y,depth,obj_room); i.image_index=4;}
 		if obj_controller.toolbuttonx=3
 		and obj_controller.toolbuttony=2
-			{var i=instance_create_depth(x,y,depth-1,obj_room); i.image_index=5;}
+			{var i=instance_create_depth(x,y,depth,obj_room); i.image_index=5;}
 		
 		if obj_controller.toolbuttonx=1
 		and obj_controller.toolbuttony=3
-			{var i=instance_create_depth(x,y,depth-1,obj_room); i.image_index=6;}
+			{var i=instance_create_depth(x,y,depth,obj_room); i.image_index=6;}
 		if obj_controller.toolbuttonx=2
 		and obj_controller.toolbuttony=3
-			{var i=instance_create_depth(x,y,depth-1,obj_room); i.image_index=7;}
+			{var i=instance_create_depth(x,y,depth,obj_room); i.image_index=7;}
 		if obj_controller.toolbuttonx=3
 		and obj_controller.toolbuttony=3
-			{var i=instance_create_depth(x,y,depth-1,obj_room); i.image_index=8;}
+			{var i=instance_create_depth(x,y,depth,obj_room); i.image_index=8;}
 }
 //this does the same thing for placing challenges and the entrance
 if obj_controller.menubuttonx=1 and obj_controller.menubuttony=5 {
