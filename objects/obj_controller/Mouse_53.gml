@@ -3,29 +3,46 @@
 
 //ROOM EDITOR
 
-//write object data to grid
-//this simply stores the object's 
-var temp=0;
+// Presets.
+var yOffset = 1;
+var xOffset = 5;
+var scale = 16;
+
+// Initialize variables to hold the temporary object values.
+var obj_id;
+var dir_id;
+
+// Itterate through the room.
 for (var i=0; i < 7; i += 1) {
 	for (var j=0; j<7; j+=1) {
-		if !place_empty((i-80)/16,(j-16)/16,obj_block) {
-			temp=collision_point((i+80)/16,(j-16)/16,obj_block,false,true);
-			ds_grid_set(obj_grid,i,j,temp.object_index);
+		
+		// Reset the temporary object values.
+		obj_id = 0;
+		dir_id = 0;
+		// Check for an object
+		yy = (yOffset + j) * scale;
+		xx = (xOffset + i) * scale;
+		var inst = collision_point(xx, yy, obj_block, true, true);
+		// If an object is found, get it's values.
+		if (inst != noone){ 
+			// First digit is the menu (1=path,2=challenge,3=key,4=lock)
+			// Second digit is the X location of the object on the toolbar
+			// Third digit is the Y location on the same toolbar
+			obj_id = inst.obj_id;
+			// Starting at zero on the right, counterclockwise in intervals of 90.
+			dir_id = inst.image_index;
 		}
+		// Write the values to the grid.
+		ds_grid_set(obj_grid,j,i, obj_id);
+		ds_grid_set(dir_grid,j,i, dir_id);
+		
 	}
 }
+
 //write direction data to grid
 //store's rooms direction as number
-//starting w/ zero on the right, counterclockwise in intervals of 90
-var temp=0;
-for (var i=0; i < 7; i += 1) {
-	for (var j=0; j<7; j+=1) {
-		if !place_empty((i-80)/16,(j-16)/16,obj_direction) {
-			temp=collision_point((i+80)/16,(j-16)/16,obj_direction,false,true);
-			ds_grid_set(dir_grid,i,j,temp.image_index);
-		}
-	}
-}
+
+
 
 //MAP EDITOR
 
@@ -87,6 +104,7 @@ for (var i=0; i < 7; i += 1) {
 		}
 	}
 }
+
 //write lock direction to grid
 //store's the room's lock's direction as number
 //starting w/ zero on the right, counterclockwise in intervals of 90
